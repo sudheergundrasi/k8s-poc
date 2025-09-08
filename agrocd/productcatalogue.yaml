@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/sudheergundrasi/k8s-poc.git
     targetRevision: main
-    path: kubernetes/
+    path: kubernetes
   destination:
     server: https://kubernetes.default.svc
     namespace: productcatalogue
