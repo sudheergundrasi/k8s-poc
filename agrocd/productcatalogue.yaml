@@ -11,7 +11,7 @@ spec:
     path: kubernetes
   destination:
     server: https://kubernetes.default.svc
-    namespace: productcatalogue
+    namespace: poc-k8s-argocd-project
   syncPolicy:
     automated:
       prune: true
