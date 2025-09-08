@@ -6,14 +6,14 @@ metadata:
   labels:
     app: shopfront
 spec:
-  type: NodePort
+  type: LoadBalancer   # <-- Change here
   selector:
     app: shopfront
   ports:
   - protocol: TCP
-    port: 8010
+    port: 80            # <-- Client-facing port (standard HTTP)
+    targetPort: 8010    # <-- The port on the pod (your container port)
     name: http
-
 ---
 apiVersion: apps/v1
 kind: Deployment

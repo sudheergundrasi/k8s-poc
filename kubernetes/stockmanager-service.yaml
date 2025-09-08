@@ -6,21 +6,20 @@ metadata:
   labels:
     app: stockmanager
 spec:
-  type: NodePort
+  type: LoadBalancer          # <-- change: request AWS ELB
   selector:
     app: stockmanager
   ports:
   - protocol: TCP
-    port: 8030
+    port: 80                  # <-- external (public) port
+    targetPort: 8030          # <-- pod/container port
     name: http
-
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: stockmanager
 spec:
-  spec:
   selector:
     matchLabels:
       app: stockmanager
